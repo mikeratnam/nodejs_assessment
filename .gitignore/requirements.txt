@@ -1,0 +1,4 @@
+node.js
+docker
+minikube
+visual studio to run cluster
