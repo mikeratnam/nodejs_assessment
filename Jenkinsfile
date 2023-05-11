@@ -11,7 +11,7 @@ pipeline {
         // The image is public on dockerhub and creds are loaded into jenkins
         script {
           def dockerImage = docker.build('rathub/sampleone')
-          docker.withRegistry('https://index.docker.io/v1/', 'docker-registry-credentials') {
+          docker.withRegistry('https://registry.hub.docker.com', 'docker-registry-credentials') {
             dockerImage.push()
           }
         }
