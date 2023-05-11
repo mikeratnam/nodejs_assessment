@@ -17,6 +17,7 @@ pipeline {
     stage('Deploy') {
       environment {
         KUBECONFIG = credentials('kubeconfig-creds')
+        PATH = "${env.PATH};C:\\Users\\imagi\\.kube"
       }
       steps {
         script {
@@ -25,8 +26,8 @@ pipeline {
             sh 'nohup kubectl --kubeconfig=$KUBECONFIG apply -f ./kubernetes/service.yaml &'
           } else {
             echo "Skipping 'nohup' commands on Windows."
-            bat 'kubectl --kubeconfig=%KUBECONFIG% apply -f ./kubernetes/deployment.yaml'
-            bat 'kubectl --kubeconfig=%KUBECONFIG% apply -f ./kubernetes/service.yaml'
+            bat "\"${env.KUBECONFIG}\" apply -f ./kubernetes/deployment.yaml"
+            bat "\"${env.KUBECONFIG}\" apply -f ./kubernetes/service.yaml"
           }
         }
       }
