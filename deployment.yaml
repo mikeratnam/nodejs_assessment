@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: samplenode_deploy
+  name: sample_node-deploy
   labels:
     app: nodejs
 spec:
@@ -15,7 +15,12 @@ spec:
         app: nodejs
     spec:
       containers:
-        - name: samplepod
-          image: sampleone
+        - name: your-app-container
+          image: rathub/sampleone:latest
           ports:
             - containerPort: 3000
+          env:
+            - name: KUBERNETES_CLUSTER_IP
+              value: localhost
+            - name: KUBERNETES_CLUSTER_PORT
+              value: "49431"
