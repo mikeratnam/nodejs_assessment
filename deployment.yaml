@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   name: samplenode_deploy
   labels:
-    app: your-app-label
+    app: nodejs
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: your-app-label
+      app: nodejs
   template:
     metadata:
       labels:
-        app: your-app-label
+        app: nodejs
     spec:
       containers:
-        - name: your-container-name
-          image: your-image-name
+        - name: samplepod
+          image: sampleone
           ports:
             - containerPort: 3000
