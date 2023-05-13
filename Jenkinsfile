@@ -26,8 +26,8 @@ pipeline {
             sh 'nohup kubectl --kubeconfig=$KUBECONFIG apply -f ./kubernetes/service.yaml &'
           } else {
             echo "Skipping 'nohup' commands on Windows."
-            bat "kubectl --kubeconfig \"${env.KUBECONFIG}\" apply -f C:/Users/imagi/.jenkins/workspace/nodejs_on_pod/kubernetes/deployment.yaml"
-            bat "kubectl --kubeconfig \"${env.KUBECONFIG}\" apply -f C:/Users/imagi/.jenkins/workspace/nodejs_on_pod/kubernetes/service.yaml"
+            bat "kubectl --kubeconfig \"${env.KUBECONFIG}\" apply -f C:/Users/imagi/.jenkins/workspace/nodejs_on_pod/deployment.yaml"
+            bat "kubectl --kubeconfig \"${env.KUBECONFIG}\" apply -f C:/Users/imagi/.jenkins/workspace/nodejs_on_pod/service.yaml"
           }
         }
       }
