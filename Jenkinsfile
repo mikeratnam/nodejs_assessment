@@ -26,8 +26,8 @@ pipeline {
             sh 'nohup kubectl --kubeconfig=$KUBECONFIG apply -f ./kubernetes/service.yaml &'
           } else {
             echo "Skipping 'nohup' commands on Windows."
-            bat "kubectl --kubeconfig \"${env.KUBECONFIG}\" apply -f ./kubernetes/deployment.yaml"
-            bat "kubectl --kubeconfig \"${env.KUBECONFIG}\" apply -f ./kubernetes/service.yaml"
+            bat "kubectl --kubeconfig \"${env.KUBECONFIG}\" apply -f ./kubernetes/deployment.yaml --server=https://192.168.59.103:8443"
+            bat "kubectl --kubeconfig \"${env.KUBECONFIG}\" apply -f ./kubernetes/service.yaml --server=https://192.168.59.103:8443"
           }
         }
       }
