@@ -21,6 +21,6 @@ spec:
             - containerPort: 3000
           env:
             - name: KUBERNETES_CLUSTER_IP
-              value: localhost
+              value: "192.168.59.103"
             - name: KUBERNETES_CLUSTER_PORT
-              value: "49431"
+              value: "8443"
